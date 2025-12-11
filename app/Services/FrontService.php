@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\BannerImageRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\ProductTrasactionRepository;
 use App\Repositories\ShoeRepository;
 
 class FrontService
@@ -11,14 +12,16 @@ class FrontService
     protected $categoryRepository;
     protected $bannerImageRepository;
     protected $shoeRepository;
+    protected $productTransactionRepository;
 
 
     public function __construct(CategoryRepository $categoryRepository, BannerImageRepository $bannerImageRepository,
-    ShoeRepository $shoeRepository)
+    ShoeRepository $shoeRepository, ProductTrasactionRepository $productTransactionRepository)
     {
         $this->categoryRepository = $categoryRepository;
         $this->bannerImageRepository = $bannerImageRepository;
         $this->shoeRepository = $shoeRepository;
+        $this->productTransactionRepository = $productTransactionRepository;
     }
 
     public function getFrontPage()
@@ -47,4 +50,12 @@ class FrontService
         return compact('productDetail', 'productRelated');
     }
 
+
+    public function getDetailShoppingUser($id)
+    {
+        $dataShoppingUser = $this->productTransactionRepository->detailProductBuyingUser($id);
+        // dd($dataShoppingUser);
+
+        return compact('dataShoppingUser');
+    }
 }

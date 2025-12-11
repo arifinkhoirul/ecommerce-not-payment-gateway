@@ -15,6 +15,4 @@ interface ShoeRepositoryInterface
     public function find($d);
 
     public function getPrice($shoeId);
-
-
 }

@@ -77,6 +77,7 @@ class OrderService
 
                 $dataShoe = $this->shoeRepository->find($orderData['shoe_id']);
                 // dd($dataShoe);
+
                 if($dataShoe->stock < $orderData['quantity']) {
                     return back()->with('error' , 'stock tidak mencuckupi');
                 }
@@ -98,6 +99,7 @@ class OrderService
 
                 // $validated['shoe_size'] = $orderData['shoe_size'];
 
+                $validated['user_id'] = $orderData['user_id'];
                 $validated['name'] = $orderData['name'];
                 $validated['phone'] = $orderData['phone'];
                 $validated['email'] = $orderData['email'];

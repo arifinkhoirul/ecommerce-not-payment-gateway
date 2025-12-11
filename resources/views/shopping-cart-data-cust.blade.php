@@ -23,6 +23,8 @@
                         @csrf
                         <!-- First Name & Last Name -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                            <input type="text" name="user_id" value="{{ session('id') }}" class="hidden">
                             <div>
                                 <label class="block text-gray-700 text-sm mb-2">
                                     Full name <span class="text-red-500">*</span>

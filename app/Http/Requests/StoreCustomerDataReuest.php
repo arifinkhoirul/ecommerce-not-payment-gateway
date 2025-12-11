@@ -23,6 +23,7 @@ class StoreCustomerDataReuest extends FormRequest
     {
         return [
             'name' => ['required', 'max:255'],
+            'user_id' => ['required'],
             'city' => ['required', 'max:255'],
             'phone' => ['required', 'max:255'],
             'email' => ['required', 'email'],

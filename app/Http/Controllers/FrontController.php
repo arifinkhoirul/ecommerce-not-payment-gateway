@@ -44,6 +44,9 @@ class FrontController extends Controller
 
     public function pofileAkun()
     {
-        return view('akun-profile');
+        // $userId = session('id');
+        $data = $this->frontService->getDetailShoppingUser(session('id'));
+        // dd($userId);
+        return view('akun-profile', $data);
     }
 }
